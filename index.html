@@ -1,0 +1,68 @@
+<!doctype html>
+<html ng-app="ngOughts">
+	<head>
+		<title>TicTac-Angular</title>
+		<style type="text/css">
+		
+		
+			table {
+				
+				margin-top: 100px;
+				}
+			tr {
+				margin: 1.5px;
+			}
+			td {
+				border: rgb(255, 255, 255) 3px solid;
+				width: 100px;
+				height: 100px;
+				text-align:center;
+				font-size: 14px;
+			}
+			.winning {
+				background-color: green;
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body style=" background: #D31027;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #EA384D, #D31027);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #EA384D, #D31027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	" ng-controller="BoardCtrl">
+	
+		<h1 style="text-align:center; color: #7a0000;">TicTac - Angular</h1>
+		<h1 style="text-align: center; margin-top: 20px;" ng-show="board.won" ng-cloak>{{board.winning_marker}} won the game!</h1>
+		
+
+
+		
+
+		<div style="display: flex;justify-content:center;" class="table">
+		<table>
+			<tr ng-repeat="row in board.grid">
+				<td ng-repeat="cell in row" ng-click="board.playCell(cell)" ng-class="{'winning': cell.winning}">
+					<span ng-bind="cell.marker"></span>
+				</td>	
+			</tr>
+		</table></div>
+		
+	
+
+	
+		<div style="display: flex;justify-content:center;"	> 
+		<button style=" 
+		 background-color: green;
+		 padding: 15px 32px;
+		 border: none;
+		 color: white;
+		 text-align:center;
+		 margin-top: 50px;
+		 font-size: 20px;"
+         ng-click="board.reset()">Reset</button>
+		</div>
+		
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+	</body>
+</html>
